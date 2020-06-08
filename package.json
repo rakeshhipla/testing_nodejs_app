@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "express": "3.12.0"
+    "express": "3.12.0",
+    "forever": "^3.0.0",
+    "nodemon": "^2.0.4"
   },
   "devDependencies": {
     "mocha": "^1.21.5",
@@ -13,8 +15,9 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
-    "stop": "pkill --signal SIGINT myApp"
+    "nodemon:start": "NODE_PATH=. nodemon index.js",
+    "forever:start": "NODE_ENV=production NODE_PATH=. forever -a start --uid \"api:server\" --minUptime=1000 --spinSleepTime=5000  index.js",
+    "forever:stop": "NODE_ENV=production NODE_PATH=. forever stopall"
   },
   "repository": {
     "type": "git",

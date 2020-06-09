@@ -3,6 +3,7 @@ jobs:
     machine:
       image: 'ubuntu-1604:201903-01'
     steps:
+      - checkouts
       - run: npm install
       - run: npm run forever:stop
       - run: npm run forever:start
@@ -10,6 +11,7 @@ jobs:
     machine:
       image: 'ubuntu-1604:201903-01'
     steps:
+      - checkout
       - run: npm run test
 workflows:
   version: 2

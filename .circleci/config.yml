@@ -1,17 +1,26 @@
+version: 2
+
+defaults: &defaults
+  working_directory: ~/repo
+  machine:
+      image: 'ubuntu-1604:201903-01'
+
+
 jobs:
   build:
-    machine:
-      image: 'ubuntu-1604:201903-01'
+    <<: *defaults  
     steps:
-      - checkouts
+      - checkout
       - run: npm install
       - run: npm run forever:stop
       - run: npm run forever:start
   test:
-    machine:
-      image: 'ubuntu-1604:201903-01'
+    <<: *defaults
     steps:
       - checkout
+      - run: npm install
+      - run: npm run forever:stop
+      - run: npm run forever:start
       - run: npm run test
 workflows:
   version: 2

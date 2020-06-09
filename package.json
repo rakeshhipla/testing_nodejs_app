@@ -14,7 +14,7 @@
     "supertest": "^0.13.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha test",
     "nodemon:start": "NODE_PATH=. nodemon index.js",
     "forever:start": "NODE_ENV=production NODE_PATH=. forever -a start --uid \"api:server\" --minUptime=1000 --spinSleepTime=5000  index.js",
     "forever:stop": "NODE_ENV=production NODE_PATH=. forever stopall"

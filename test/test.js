@@ -13,7 +13,7 @@ describe("Sample unit test", () => {
         .expect(200)
         .end((err, res) =>  {
             console.log("Error : ", res.status);         
-            expect(res.status.should.equal(200));
+            res.status.should.equal(200);
             done();
         });
     });

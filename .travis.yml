@@ -4,6 +4,6 @@ node_js:
 install:
   - npm install
 script:
-- npm run forever:stop
-- npm run forever:start
-- npm run test
+  - npm run forever:stop
+  - npm run forever:start
+  - npm run test
